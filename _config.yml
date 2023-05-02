@@ -19,7 +19,7 @@ locale                   : "en-US"
 title                    : "sk's note"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "S.K"
+name                     : "sk"
 description              : "건망증이 심해서 기록하려한다"
 url                      : "https://s0lk1m.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
