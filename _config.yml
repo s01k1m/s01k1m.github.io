@@ -20,7 +20,7 @@ title                    : "sk's note"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "sk"
-description              : "건망증이 심해서 기록하려한다"
+description              : "일단 기록"
 url                      : "https://s0lk1m.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "https://github.com/s01k1m/s01k1m.github.io"
