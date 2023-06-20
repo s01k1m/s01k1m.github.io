@@ -1,0 +1,14 @@
+# main links
+main:
+  # - title: "Home"
+  #   url: /
+  - title: "About"
+    url: /about/
+  - title: "Posts"
+    url: /year-archive/
+  - title: "Category"
+    url: /categories/
+  - title: "Tags"
+    url: /tags/
+  - title: "Projects"
+    url: /project/
