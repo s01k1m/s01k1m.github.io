@@ -36,6 +36,7 @@ github_username:  s01k1m
 remote_theme: s01k1m/minimal-mistakes
 plugins:
   - jekyll-feed
+  - jekyll-include-cache
 
 # Exclude from processing.
 # The following items will not be processed, by default.
