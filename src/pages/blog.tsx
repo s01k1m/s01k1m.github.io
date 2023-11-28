@@ -1,8 +1,8 @@
+// '/blog' 페이지
 import { allPosts } from "@/contentlayer/generated";
 import { InferGetStaticPropsType } from "next";
 import Container from "../components/Container";
 import BlogPost from "../components/BlogPost";
-
 
 const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (

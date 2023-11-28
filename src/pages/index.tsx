@@ -1,9 +1,12 @@
+// '/' 페이지
 import Container from "../components/Container";
+import RecentPosts from "../components/RecentPosts";
 
 const Home = () => {
   return (
     <Container>
-      <span className={`font-bold`}>HOME</span>
+      <span className="">SOL의 블로그</span>
+      <RecentPosts />
     </Container>
   );
 };
