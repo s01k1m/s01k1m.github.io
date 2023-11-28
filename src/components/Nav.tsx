@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
@@ -24,6 +25,7 @@ const NavBar = styled.nav`
     margin-right: 60px;
     padding: 8px;
   }
+
   a:hover,
   a:active {
     background: #cfcfcf;
@@ -40,18 +42,24 @@ const NavBar = styled.nav`
   }
   /* 모바일 */
   @media screen and (max-width: 640px) {
+    a {
+      margin-right: 30px;
+      padding: 8px;
+    }
   }
 `;
 
 const Nav = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
   return (
     <NavBar>
-      <Link className="h-[35px] w-[35px] relative" href="/">
+      <Link className="w-[32px] h-[32px] relative" href="/">
         <Image
           width="0"
           height="0"
-          sizes="100vw"
-          className="w-full h-auto object-fill"
+          sizes="1"
+          className="w-[100%] h-auto object-fill"
           // Image는 항상 public 에서 찾는다
           src="/icons/pine.png"
           alt="home icon"

@@ -5,7 +5,10 @@ const { withContentlayer } = require('next-contentlayer');
 const options = {
   reactStrictMode: true,
   swcMinify: false,
-  // 옵션은 자유롭게 넣어주세요.
+  compiler: {
+    // ssr and displayName are configured by default
+    styledComponents: true,
+  },
 };
 
 module.exports = withContentlayer(options);

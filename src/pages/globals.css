@@ -141,6 +141,7 @@ table {
     format("woff");
   font-weight: 400;
   font-style: normal;
+  unicode-range: U+AC00-D7A3;
 }
 
 @import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
@@ -175,7 +176,7 @@ body {
 
 html,
 body {
-  font-family: "General Sans", "Nanum Myeongjo", "Pretendard-Regular",
+  font-family: "Pretendard-Regular", "General Sans", "Nanum Myeongjo",
     sans-serif;
   background: #f3f3f5;
   margin: 0px;
