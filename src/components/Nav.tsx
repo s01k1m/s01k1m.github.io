@@ -98,9 +98,9 @@ const Nav = () => {
         className="hamburger max-[640px]:visible invisible flex flex-col space-y-1 z-10"
         onClick={() => setIsNavOpen((prev) => !prev)}
       >
-        <span className="block h-0.5 w-6 animate-pulse bg-gray-600"></span>
-        <span className="block h-0.5 w-6 animate-pulse bg-gray-600"></span>
-        <span className="block h-0.5 w-6 animate-pulse bg-gray-600"></span>
+        <span className="block h-[2px] w-6 animate-pulse bg-gray-600"></span>
+        <span className="block h-[2px] w-6 animate-pulse bg-gray-600"></span>
+        <span className="block h-[2px] w-6 animate-pulse bg-gray-600"></span>
       </div>
       <div
         className={`min-[640px]:invisible ${
