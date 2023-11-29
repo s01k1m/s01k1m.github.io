@@ -85,7 +85,7 @@ const Nav = () => {
         </Link>
         {navlinks.map((nav) => (
           <Link
-            className="hidden sm:inline-block"
+            className="hidden min-[640px]:inline-block"
             href={nav.link}
             key={nav.title}
           >
@@ -95,7 +95,7 @@ const Nav = () => {
       </div>
       {/* hamburger menu */}
       <div
-        className="hamburger max-[640px]:visible md:invisible flex flex-col space-y-1 z-10"
+        className="hamburger max-[640px]:visible invisible flex flex-col space-y-1 z-10"
         onClick={() => setIsNavOpen((prev) => !prev)}
       >
         <span className="block h-0.5 w-6 animate-pulse bg-gray-600"></span>
