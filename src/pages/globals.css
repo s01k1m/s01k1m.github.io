@@ -182,3 +182,8 @@ body {
   margin: 0px;
   font-size: 16px;
 }
+
+.title {
+  font-size: 60px;
+  font-weight: 800;
+}

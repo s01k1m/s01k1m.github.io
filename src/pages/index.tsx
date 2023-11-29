@@ -10,7 +10,7 @@ import RecentPosts from "../components/RecentPosts";
 const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Container>
-      <span className="text-[60px] font-bol">SOL KIM</span>
+      <span className="title">SOL KIM</span>
       <div className="contact flex mt-4">
         <FaLinkedin size="24" />
         <FaGithubSquare size="24" className="ml-2" />
