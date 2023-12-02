@@ -3,12 +3,11 @@ import { allPosts } from '@/contentlayer/generated'
 import Link from 'next/link'
 import { FaLinkedin, FaGithubSquare, FaEnvelopeSquare } from 'react-icons/fa'
 import { RiArrowRightUpLine } from 'react-icons/ri'
-import Container from '../components/Container'
 import RecentPosts from '../components/RecentPosts'
 
 const Home = ({ posts }: any) => {
   return (
-    <Container>
+    <>
       <span className="title">SOL KIM</span>
       <div className="contact mt-4 flex">
         <FaLinkedin size="24" />
@@ -21,7 +20,7 @@ const Home = ({ posts }: any) => {
         <RiArrowRightUpLine className="inline" />
       </div>
       <RecentPosts posts={posts} />
-    </Container>
+    </>
   )
 }
 

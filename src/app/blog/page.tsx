@@ -1,12 +1,17 @@
 // '/blog' 페이지
 import { allPosts } from '@/contentlayer/generated'
-import Container from '../../components/Container'
 import BlogPost from '../../components/BlogPost'
 
-const Blog = ({ posts }: any) => {
+const Blog = () => {
+  const posts = allPosts.sort(
+    (a, b) => Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)),
+  )
+
+  console.log('post', posts)
+
   return (
-    <Container>
-      <div className={`mt-10 flex flex-col`}>
+    <>
+      <div className="xs:flex-row xs:justify-between mt-10 flex w-full flex-col flex-wrap justify-between">
         {posts.map((post) => (
           <BlogPost
             date={post.createdAt}
@@ -17,21 +22,21 @@ const Blog = ({ posts }: any) => {
           />
         ))}
       </div>
-    </Container>
+    </>
   )
 }
 
-async function generateStaticParams() {
-  const posts = allPosts.sort(
-    (a, b) => Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)),
-  )
-
-  return {
-    props: {
-      posts,
-    },
-  }
-}
+// export const generateStaticParams = async () => {
+//   const posts = allPosts.sort(
+//     (a, b) => Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)),
+//   )
+//   console.log(posts)
+//   return {
+//     props: {
+//       posts,
+//     },
+//   }
+// }
 
 // export const getStaticProps = async () => {
 //   const posts = allPosts.sort(

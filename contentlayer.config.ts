@@ -22,11 +22,15 @@ export const Post = defineDocumentType(() => ({
     },
     description: {
       type: 'string',
-      required: true,
+      required: false,
     },
     category: {
       type: 'string',
-      required: true,
+      required: false,
+    },
+    series: {
+      type: 'string',
+      required: false,
     },
     thumbnail: {
       type: 'string',
@@ -38,6 +42,7 @@ export const Post = defineDocumentType(() => ({
     },
   },
 }))
+    
 
 const contentSource = makeSource({
   // 마크다운 파일이 저장되어 있는 루트 폴더

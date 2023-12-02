@@ -30,6 +30,7 @@
     "styled-components": "^6.1.1"
   },
   "devDependencies": {
+    "@tanstack/react-query-devtools": "^5.12.1",
     "@types/node": "^20.10.0",
     "@types/react": "^18.2.39",
     "@types/react-dom": "^18.2.17",

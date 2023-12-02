@@ -1,0 +1,39 @@
+---
+title: "[Next.js] prettier"
+description: Next.js에서 Prettier 사용하기
+category: next.js, prettier
+series: next.js
+createdAt: 2023-11-30
+---
+
+# 1. Install Prettier
+
+```bash showLineNumbers
+npm install --save-dev prettier
+```
+
+# 2. **_Configure Prettier_**
+
+Next, we need to configure the `Prettier` to use it. Create the `.prettierrc.js` file and modify it like the below.
+
+```jsx
+module.exports = {
+  semi: false,
+  singleQuote: true,
+  trailingComma: "all",
+};
+```
+
+- semi: false: `Next.js` basically doesn’t use the last semicolon(`;`).
+- singleQuote: true: `Next.js` basicllay uses the single quote(`'`).
+- trailingComma: “all”: To make small changes, if the comma can be added, add the comma to the last.
+
+# 3. \***\*Configure scripts\*\***
+
+To use the `Prettier` that we’ve set, open the `package.json` file and modify it like the below.
+
+# \***\*Execute\*\***
+
+```jsx
+npm run format
+```

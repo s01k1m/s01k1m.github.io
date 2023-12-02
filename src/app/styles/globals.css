@@ -141,7 +141,7 @@ table {
     format('woff');
   font-weight: 400;
   font-style: normal;
-  unicode-range: U+AC00-D7A3;
+  /* unicode-range: U+AC00-D7A3; */
 }
 
 @import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
