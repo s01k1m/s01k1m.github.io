@@ -1,5 +1,6 @@
 // 'use client'
 import { useEffect, useState } from 'react'
+
 import styled from 'styled-components'
 import moment from 'moment'
 import { CommentArrayType } from 'src/app/guestbook/page'
@@ -11,7 +12,7 @@ const Comment = styled.div`
     padding: 20px;
     background: #579ffb;
     border-radius: 15px 15px 0 15px;
-    margin: 10px 20px;
+    margin: 5px 20px;
     color: #fff;
   }
 
@@ -40,30 +41,23 @@ const GuestbookComments = ({ commentsData }: CommentArrayType) => {
           Hi, welcome to my blog! Go ahead and send me a message. 😄
         </div>
       </div>
-      <div className="flex justify-end">
-        <div className="chat guest">
-          <div className="flex justify-between">
-            <div className="name">name</div>
-            <div className="time">2023.11.30</div>
-          </div>
-          <div className="comments mt-2">Hi,</div>
-        </div>
-      </div>
-      {commentsData?.map((comment) => {
-        return (
-          <div className="flex justify-end">
-            <div className="chat guest">
-              <div className="flex justify-between">
-                <div className="name">{comment.name}</div>
-                <div className="time">
-                  {moment(comment.createdAt).format('YYYY. MM. DD')}
+      <div className="h-[600px] overflow-y-scroll">
+        {commentsData?.map((comment) => {
+          return (
+            <div className="flex justify-end">
+              <div className="chat guest">
+                <div className="flex justify-between">
+                  <div className="name">{comment.name}</div>
+                  <div className="time">
+                    {moment(comment.createdAt).format('YYYY. MM. DD')}
+                  </div>
                 </div>
+                <div className="comments mt-2">{comment.comment}</div>
               </div>
-              <div className="comments mt-2">{comment.comment}</div>
             </div>
-          </div>
-        )
-      })}
+          )
+        })}
+      </div>
     </Comment>
   )
 }
