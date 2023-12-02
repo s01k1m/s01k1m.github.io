@@ -1,8 +1,9 @@
-import { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import styled from "styled-components";
-import navlinks from "../data/navlinks";
+'use client'
+import { useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import styled from 'styled-components'
+import navlinks from '../data/navlinks'
 
 const NavBar = styled.nav`
   /* 웹형 */
@@ -64,20 +65,20 @@ const NavBar = styled.nav`
   /* 모바일 */
   @media screen and (max-width: 640px) {
   }
-`;
+`
 
 const Nav = () => {
-  const [isNavOpen, setIsNavOpen] = useState<Boolean>(false);
+  const [isNavOpen, setIsNavOpen] = useState<Boolean>(false)
 
   return (
     <NavBar>
-      <div className="flex web">
-        <Link className="h-[35px] w-[35px] relative" href="/">
+      <div className="web flex">
+        <Link className="relative h-[35px] w-[35px]" href="/">
           <Image
             width="0"
             height="0"
             sizes="100vw"
-            className="w-full h-auto object-fill"
+            className="h-auto w-full object-fill"
             // Image는 항상 public 에서 찾는다
             src="/icons/pine.png"
             alt="home icon"
@@ -95,7 +96,7 @@ const Nav = () => {
       </div>
       {/* hamburger menu */}
       <div
-        className="hamburger max-[640px]:visible invisible flex flex-col space-y-1 z-10"
+        className="hamburger invisible z-10 flex flex-col space-y-1 max-[640px]:visible"
         onClick={() => setIsNavOpen((prev) => !prev)}
       >
         <span className="block h-[2px] w-6 animate-pulse bg-gray-600"></span>
@@ -104,7 +105,7 @@ const Nav = () => {
       </div>
       <div
         className={`min-[640px]:invisible ${
-          isNavOpen ? "showMenuNav" : "hideMenuNav"
+          isNavOpen ? 'showMenuNav' : 'hideMenuNav'
         }`}
       >
         {navlinks.map((nav) => (
@@ -114,7 +115,7 @@ const Nav = () => {
         ))}
       </div>
     </NavBar>
-  );
-};
+  )
+}
 
-export default Nav;
+export default Nav

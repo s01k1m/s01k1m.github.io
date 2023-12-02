@@ -1,6 +1,6 @@
-import Head from "next/head";
-import Nav from "./Nav";
-import metadata from "../data/metadata";
+import Head from 'next/head'
+import Nav from './Nav'
+import metadata from '../data/metadata'
 
 const Container = (props) => {
   const meta = {
@@ -8,7 +8,7 @@ const Container = (props) => {
     description: metadata.description,
     author: metadata.author,
     ...props.customMeta,
-  };
+  }
   return (
     <>
       <Head>
@@ -27,7 +27,7 @@ const Container = (props) => {
         {props.children}
       </main>
     </>
-  );
-};
+  )
+}
 
-export default Container;
+export default Container
