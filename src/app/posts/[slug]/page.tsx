@@ -3,6 +3,8 @@ import { allPosts } from '@/contentlayer/generated'
 // import { InferGetStaticPropsType } from 'next'
 import { getMDXComponent } from 'next-contentlayer/hooks'
 
+import '../../styles/post.css'
+
 // const Post = ({ post }: any) => {
 //   const MDXComponent = useMDXComponent(post.body.code)
 
@@ -69,8 +71,9 @@ const Post = ({ params }: { params: { slug: string } }) => {
   return (
     <article className="mx-auto max-w-xl py-8">
       <div className="mb-8 text-center">
-        <h1>{post?.title}</h1>
+        <div className="title">{post?.title}</div>
       </div>
+      <hr className="slash-3 my-3" />
       <Content />
     </article>
   )

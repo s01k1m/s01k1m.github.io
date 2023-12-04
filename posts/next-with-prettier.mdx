@@ -16,12 +16,13 @@ npm install --save-dev prettier
 
 Next, we need to configure the `Prettier` to use it. Create the `.prettierrc.js` file and modify it like the below.
 
-```jsx
+```jsx:.prettierrc.js showLineNumbers
 module.exports = {
   semi: false,
   singleQuote: true,
   trailingComma: "all",
 };
+
 ```
 
 - semi: false: `Next.js` basically doesn’t use the last semicolon(`;`).

@@ -1,7 +1,8 @@
 // contentlayer.config.ts
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
-import highlight from 'rehype-highlight'
 import rehypePrettyCode from 'rehype-pretty-code'
+import rehypePrism from 'rehype-prism-plus'
+import rehypeCodeTitles from 'rehype-code-titles'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -42,7 +43,6 @@ export const Post = defineDocumentType(() => ({
     },
   },
 }))
-    
 
 const contentSource = makeSource({
   // 마크다운 파일이 저장되어 있는 루트 폴더
@@ -51,13 +51,17 @@ const contentSource = makeSource({
   mdx: {
     remarkPlugins: [],
     rehypePlugins: [
+      rehypeCodeTitles,
+      // rehypePrism,
       [
         rehypePrettyCode,
         {
-          theme: 'github-dark', // 코드작성시 적용할 테마
+          theme: {
+            dark: 'rose-pine-moon',
+            // light: 'rose-pine-dawn',
+          },
         },
       ],
-      // highlight,
     ],
   },
 })
