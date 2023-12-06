@@ -80,3 +80,11 @@ p{
   border-top: 1px solid transparent;
   background: linear-gradient(white, white) padding-box, linear-gradient(90deg, White, DimGrey, White) border-box;
 }
+
+html {
+  cursor: url(https://cur.cursors-4u.net/nature/nat-10/nat985.cur), auto !important;
+ }
+ 
+.checkered {
+  background: repeating-conic-gradient(#000000 0% 25%, #00047a 0% 50%) 50% / 30px 30px;
+}

@@ -73,7 +73,7 @@ const Post = ({ params }: { params: { slug: string } }) => {
       <div className="mb-8 text-center">
         <div className="title">{post?.title}</div>
       </div>
-      <hr className="slash-3 my-3" />
+      <hr className="checkered x-full black my-3 h-8" />
       <Content />
     </article>
   )
