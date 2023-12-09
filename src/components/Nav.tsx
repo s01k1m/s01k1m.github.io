@@ -73,7 +73,7 @@ const Nav = () => {
   return (
     <NavBar>
       <div className="web flex">
-        <Link className="relative h-[35px] w-[35px]" href="/">
+        <Link className="relative h-[35px] w-[35px] shrink-0" href="/">
           <Image
             width="0"
             height="0"
@@ -86,7 +86,7 @@ const Nav = () => {
         </Link>
         {navlinks.map((nav) => (
           <Link
-            className="hidden min-[640px]:inline-block"
+            className="hidden shrink-0 min-[640px]:inline-block"
             href={nav.link}
             key={nav.title}
           >
