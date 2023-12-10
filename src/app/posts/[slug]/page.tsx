@@ -60,18 +60,26 @@ export const generateStaticParams = async () =>
 
 export const generateMetadata = ({ params }) => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
-  return { title: post.title }
+  if (post) {
+    return { title: post.title }
+  }
 }
 
 const Post = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
+
+  if (!post) {
+    // Handle the case where no post is found
+    // You can show an error message, redirect the user, etc.
+    return
+  }
 
   const Content = getMDXComponent(post.body.code)
 
   return (
     <article className="mx-auto max-w-xl py-8">
       <div className="mb-8 text-center">
-        <div className="title">{post?.title}</div>
+        <div className="title">{post.title}</div>
       </div>
       <hr className="checkered x-full black my-3 h-8" />
       <Content />
