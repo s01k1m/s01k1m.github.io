@@ -125,7 +125,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 table {
@@ -136,18 +136,18 @@ table {
 /* my CSS */
 
 @font-face {
-  font-family: "Pretendard-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
-    format("woff");
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+    format('woff');
   font-weight: 400;
   font-style: normal;
-  unicode-range: U+AC00-D7A3;
+  /* unicode-range: U+AC00-D7A3; */
 }
 
 @import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
 
 .nanummyeongjo * {
-  font-family: "Nanum Myeongjo", serif;
+  font-family: 'Nanum Myeongjo', serif;
 }
 
 :root {
@@ -176,9 +176,14 @@ body {
 
 html,
 body {
-  font-family: "Pretendard-Regular", "General Sans", "Nanum Myeongjo",
+  font-family: 'Pretendard-Regular', 'General Sans', 'Nanum Myeongjo',
     sans-serif;
   background: #f3f3f5;
   margin: 0px;
   font-size: 16px;
+}
+
+.title {
+  font-size: 60px;
+  font-weight: 800;
 }
