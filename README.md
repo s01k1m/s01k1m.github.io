@@ -6,9 +6,10 @@
     <img width="200" alt="luka" src="https://independent.ng/wp-content/uploads/luka-modric.jpg">
   </kbd>
   <br/>
-  [⭐️ 𝘾𝙡𝙞𝙘𝙠! 𝙀𝙭𝙥𝙡𝙤𝙧𝙚 𝙢𝙮 𝙝𝙪𝙢𝙗𝙡𝙚 𝙖𝙙𝙤𝙧𝙖𝙗𝙡𝙚 𝙗𝙡𝙤𝙜 👆 ⭐️](https://s01k1m.vercel.app/)
+  <a href="https://s01k1m.vercel.app/">
+  𝘾𝙡𝙞𝙘𝙠! 𝙀𝙭𝙥𝙡𝙤𝙧𝙚 𝙢𝙮 𝙝𝙪𝙢𝙗𝙡𝙚 𝙖𝙙𝙤𝙧𝙖𝙗𝙡𝙚 𝙗𝙡𝙤𝙜 👆
+  </a>
   </br>
-  This is a personal website with a guestbook page.
 </p>
 
 # 🔧 Stack 
