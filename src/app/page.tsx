@@ -3,7 +3,9 @@ import { allPosts } from '@/contentlayer/generated'
 import Link from 'next/link'
 import { FaLinkedin, FaGithubSquare, FaEnvelopeSquare } from 'react-icons/fa'
 import { RiArrowRightUpLine } from 'react-icons/ri'
-import RecentPosts from '../components/RecentPosts'
+// import RecentPosts from '../components/RecentPosts'
+import Portfolio from 'src/components/Portfolio'
+import MyWorks from 'src/components/MyWorks'
 
 const Home = ({ posts }: any) => {
   return (
@@ -19,7 +21,9 @@ const Home = ({ posts }: any) => {
         More about me
         <RiArrowRightUpLine className="inline" />
       </div>
-      <RecentPosts posts={posts} />
+      {/* <RecentPosts posts={posts} /> */}
+      <Portfolio />
+      <MyWorks />
     </>
   )
 }
