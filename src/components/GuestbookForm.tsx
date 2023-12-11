@@ -6,6 +6,8 @@ import styled from 'styled-components'
 import axios from 'axios'
 import { ImGithub } from 'react-icons/im'
 
+import toast, { Toaster } from 'react-hot-toast'
+
 const Guestbook = styled.div``
 
 const GuestbookForm = ({ fetchComments }: any) => {
@@ -14,23 +16,41 @@ const GuestbookForm = ({ fetchComments }: any) => {
   const { data: session } = useSession()
 
   const handlePost = async () => {
-    if (inputValue === '') {
-      return alert('방명록을 작성해주세요')
-    } else {
-      const data = {
-        name: session?.user.name,
-        comment: inputValue,
-      }
+    try {
+      if (inputValue === '') {
+        throw new Error('방명록을 작성해주세요')
+      } else {
+        const data = {
+          name: session?.user.name,
+          comment: inputValue,
+        }
 
-      const response = await axios.post('/api/guestbook', data)
+        const response = await axios.post('/api/guestbook', data)
+        return response // 성공 시 어떤 값을 반환하도록 설정
+      }
+    } catch (error) {
+      throw error // catch 블록에서 예외를 다시 던져주기
     }
   }
 
   const handleSubmit = () => {
-    handlePost().then(() => {
-      fetchComments()
-      setInputValue('') // 인풋 비우기
-    })
+    // 토스트 알림 적용
+    toast.promise(
+      handlePost()
+        .then(() => {
+          fetchComments()
+          setInputValue('') // 인풋 비우기
+        })
+        .catch((error) => {
+          console.error(error)
+          return Promise.reject(error)
+        }), // catch 블록에서 프로미스를 rejected로 만들어주기,
+      {
+        loading: 'Saving...',
+        success: <b>Successfully submitted!</b>,
+        error: <b>Unable to submit your entry.</b>,
+      },
+    )
   }
 
   const handleEnter = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -96,7 +116,7 @@ const GuestbookForm = ({ fetchComments }: any) => {
             >
               Send
             </button>
-            {/* <button type=></button> */}
+            <Toaster position="bottom-center" reverseOrder={false} />
           </div>
         </form>
       )}
