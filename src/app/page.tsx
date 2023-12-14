@@ -10,7 +10,7 @@ import MyWorks from 'src/components/MyWorks'
 const Home = ({ posts }: any) => {
   return (
     <>
-      <span className="title">SOL KIM</span>
+      <div className="title">SOL KIM</div>
       <div className="contact mt-4 flex">
         <FaLinkedin size="24" />
         <FaGithubSquare size="24" className="ml-2" />
@@ -39,16 +39,5 @@ async function generateStaticParams() {
     },
   }
 }
-
-// export const getStaticProps = async () => {
-//   const posts = allPosts.sort(
-//     (a, b) => Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)),
-//   )
-//   return {
-//     props: {
-//       posts,
-//     },
-//   }
-// }
 
 export default Home

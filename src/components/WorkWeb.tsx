@@ -34,7 +34,6 @@ const WorkWeb = ({ imageSrc }: Prop) => {
             width: '100%',
             height: '100%',
           }}
-          priority="blur"
         />
       </div>
     </div>

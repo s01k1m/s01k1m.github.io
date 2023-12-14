@@ -1,59 +1,11 @@
 // import Container from '../../../components/Container'
+import moment from 'moment'
 import { allPosts } from '@/contentlayer/generated'
 // import { InferGetStaticPropsType } from 'next'
 import { getMDXComponent } from 'next-contentlayer/hooks'
-
-import '../../styles/post.css'
-
-// const Post = ({ post }: any) => {
-//   const MDXComponent = useMDXComponent(post.body.code)
-
-//   const customMeta = {
-//     title: post.title,
-//     description: post.description,
-//     date: new Date(post.createdAt).toISOString(),
-//   }
-
-//   return (
-//     <>
-//       <div className="prose mt-10">
-//         <h1 className="text-center text-[32px] font-bold">{post.title}</h1>
-//         <hr className="m-5 h-1" />
-//         <MDXComponent />
-//       </div>
-//     </>
-//   )
-// }
-
-// // Return a list of `params` to populate the [slug] dynamic segment
-// export async function generateStaticParams() {
-//   // const posts = await fetch('https://.../posts').then((res) => res.json())
-
-//   return allPosts.map((post) => ({
-//     slug: post._raw.flattenedPath,
-//   }))
-// }
-
-// // Multiple versions of this page will be statically generated
-// // using the `params` returned by `generateStaticParams`
-
-// export const getStaticPaths = async () => {
-//   return {
-//     paths: allPosts.map((p) => ({ params: { slug: p._raw.flattenedPath } })),
-//     fallback: false,
-//   }
-// }
-
-// export const getStaticProps = async ({ params }) => {
-//   const post = allPosts.find((p) => p._raw.flattenedPath === params.slug)
-//   return {
-//     props: {
-//       post,
-//     },
-//   }
-// }
-
-// export default Post
+import { GiDiamonds } from 'react-icons/gi'
+import { MdCalendarMonth } from 'react-icons/md'
+import '../../styles/post.scss'
 
 export const generateStaticParams = async () =>
   allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
@@ -77,11 +29,24 @@ const Post = ({ params }: { params: { slug: string } }) => {
   const Content = getMDXComponent(post.body.code)
 
   return (
-    <article className="mx-auto max-w-xl py-8">
+    <article className="mx-auto max-w-xl py-8 ">
       <div className="mb-8 text-center">
         <div className="title">{post.title}</div>
+        <div className="time mt-6 flex items-center justify-center text-[0.9rem] text-gray-600 opacity-70">
+          <MdCalendarMonth className="mr-1 inline-block" />
+          {moment(post.createdAt).format('YYYY. MM. DD')}
+        </div>
       </div>
-      <hr className="checkered x-full black my-3 h-8" />
+      {/* <hr className="checkered h-15 absolute left-0 top-[-65px] m-0 mx-0 my-1 h-8 w-[100vw]" /> */}
+      <figure>
+        <span className="my-6 flex items-center">
+          <span className="h-px flex-1 bg-black"></span>
+          <span className="shrink-0 px-6">
+            <GiDiamonds />
+          </span>
+          <span className="h-px flex-1 bg-black"></span>
+        </span>
+      </figure>
       <Content />
     </article>
   )

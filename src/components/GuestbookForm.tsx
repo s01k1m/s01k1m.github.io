@@ -63,9 +63,9 @@ const GuestbookForm = ({ fetchComments }: any) => {
     <Guestbook>
       {!session && (
         <div className="mx-[20px] my-[10px] flex flex-col items-center justify-center">
-          <div className="my-2">방명록을 작성하기 위해 로그인 해주세요</div>
+          <div className="mt-2">방명록을 작성하기 위해 로그인 해주세요</div>
           <button
-            className="animated flex w-[100px] justify-around rounded-full bg-blue-500 p-3 font-bold text-white hover:bg-blue-700"
+            className="animated my-2 flex w-[110px] justify-around rounded-full bg-black p-3  font-bold text-white hover:animate-pulse"
             onClick={() => signIn('github')}
           >
             <ImGithub />

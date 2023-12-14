@@ -4,50 +4,26 @@ import BlogPost from '../../components/BlogPost'
 
 const Blog = () => {
   const posts = allPosts.sort(
-    (a, b) => Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)),
+    (a, b) => Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)), // 최신 순 정렬
   )
-
-  console.log('post', posts)
 
   return (
     <>
-      <div className="xs:flex-row xs:justify-between mt-10 flex w-full flex-col flex-wrap justify-between">
+      <div className="title ">Blog</div>
+      <div className="mt-10 flex w-full flex-col flex-wrap justify-between xs:flex-row xs:justify-between">
         {posts.map((post) => (
           <BlogPost
             date={post.createdAt}
             title={post.title}
-            des={post.description}
+            des={post.description as string}
             slug={post._raw.flattenedPath}
             key={post._id}
+            category={post.category as string[]}
           />
         ))}
       </div>
     </>
   )
 }
-
-// export const generateStaticParams = async () => {
-//   const posts = allPosts.sort(
-//     (a, b) => Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)),
-//   )
-//   console.log(posts)
-//   return {
-//     props: {
-//       posts,
-//     },
-//   }
-// }
-
-// export const getStaticProps = async () => {
-//   const posts = allPosts.sort(
-//     (a, b) => Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)),
-//   )
-
-//   return {
-//     props: {
-//       posts,
-//     },
-//   }
-// }
 
 export default Blog
