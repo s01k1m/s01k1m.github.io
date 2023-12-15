@@ -6,10 +6,10 @@ export interface PostPropsType {
   date: string
   des: string
   slug: string
-  category: string[]
+  tags: string[]
 }
 
-const BlogPost = ({ title, date, des, slug, category }: PostPropsType) => {
+const BlogPost = ({ title, date, des, slug, tags }: PostPropsType) => {
   return (
     <Link href={`/posts/${slug}`} passHref className="group mb-[10px] w-full">
       {/* <div className="text-xs font-medium text-gray-400">{date}</div> */}
@@ -27,7 +27,7 @@ const BlogPost = ({ title, date, des, slug, category }: PostPropsType) => {
           {des}
         </div>
         <div>
-          {category.map((tag) => {
+          {tags.map((tag) => {
             return (
               <span className="m-0.5 rounded-full bg-gray-800 p-1 px-2 text-[12px] text-gray-200 group-hover:bg-modric-blue">
                 {tag.trim()}
