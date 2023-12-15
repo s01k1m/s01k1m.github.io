@@ -10,7 +10,7 @@ const Blog = () => {
   return (
     <>
       <div className="title ">Blog</div>
-      <div className="mt-10 flex w-full flex-col flex-wrap justify-between xs:flex-row xs:justify-between">
+      <div className="n  mt-10  grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
         {posts.map((post) => (
           <BlogPost
             date={post.createdAt}

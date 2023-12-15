@@ -11,21 +11,21 @@ export interface PostPropsType {
 
 const BlogPost = ({ title, date, des, slug, category }: PostPropsType) => {
   return (
-    <Link
-      href={`/posts/${slug}`}
-      passHref
-      className=" group mb-[10px] w-full sm:w-[48%]"
-    >
+    <Link href={`/posts/${slug}`} passHref className="group mb-[10px] w-full">
       {/* <div className="text-xs font-medium text-gray-400">{date}</div> */}
       <div
-        className={`relative z-10 mt-4 inline-block text-2xl font-extrabold drop-shadow-md hover:text-white hover:text-shadow-away group-hover:text-white group-hover:text-shadow-away `}
+        className={`relative z-10 w-full text-2xl font-extrabold hover:text-white hover:text-shadow-away group-hover:text-white group-hover:text-shadow-away `}
       >
         {title}
       </div>
       <div
-        className={`mt-2 flex  flex-nowrap items-center justify-between text-ellipsis hover:text-white hover:text-shadow-away group-hover:text-white group-hover:text-shadow-away`}
+        className={`mt-1 grid grid-cols-[2fr,1fr] items-center justify-between gap-1 hover:text-white hover:text-shadow-away group-hover:text-white group-hover:text-shadow-away`}
       >
-        <div className={`max-x-[70%] mt-1 text-ellipsis`}>{des}</div>
+        <div
+          className={`mt-1 box-border overflow-x-auto text-ellipsis whitespace-nowrap text-[#767676] group-hover:text-white`}
+        >
+          {des}
+        </div>
         <div>
           {category.map((tag) => {
             return (

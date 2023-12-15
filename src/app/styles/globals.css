@@ -138,6 +138,7 @@ table {
   --modric-blue: #0457A2;
   --modric-red: #ED1C24;
   --modric-gold:  #dfb770;
+  --background-gradient-purpleblue: linear-gradient(-225deg, #cbbacc 0%, #2580b3 100%);
 }
 
 @font-face {

@@ -9,7 +9,7 @@ import navlinks from '../data/navlinks'
 const NavBar = styled.nav`
   /* 웹형 */
   // background: #d9d9d9;
-  color: #555;
+  color: #555555;
   font-size: 14px;
   width: 100vw;
   height: 48px;
@@ -94,10 +94,6 @@ const NavBar = styled.nav`
   }
   /* 패드 */
   @media screen and (min-width: 640px) and (max-width: 768px) {
-    a {
-      margin-right: 30px;
-      padding: 8px;
-    }
   }
   /* 모바일 */
   @media screen and (max-width: 640px) {
