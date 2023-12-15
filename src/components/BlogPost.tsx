@@ -19,17 +19,17 @@ const BlogPost = ({ title, date, des, slug, tags }: PostPropsType) => {
         {title}
       </div>
       <div
-        className={`mt-1 grid grid-cols-[2fr,1fr] items-center justify-between gap-1 hover:text-white hover:text-shadow-away group-hover:text-white group-hover:text-shadow-away`}
+        className={`mt-[-8px] grid grid-cols-[2fr,1fr] items-center justify-between gap-1 hover:text-white hover:text-shadow-away group-hover:text-white group-hover:text-shadow-away`}
       >
         <div
           className={`ml-[-10px] box-border overflow-x-auto text-ellipsis whitespace-nowrap py-4 pl-3 text-[#767676] group-hover:text-white`}
         >
           {des}
         </div>
-        <div>
+        <div className="flex flex-wrap items-center justify-end gap-1">
           {tags.map((tag) => {
             return (
-              <span className="m-0.5 rounded-full bg-gray-800 p-1 px-2 text-[12px] text-gray-200 group-hover:bg-modric-blue">
+              <span className="rounded-full bg-gray-800 p-1 px-2 text-[12px] text-gray-200 group-hover:bg-modric-blue">
                 {tag.trim()}
               </span>
             )

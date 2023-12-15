@@ -2,7 +2,6 @@
 import { allPosts } from '@/contentlayer/generated'
 import BlogPost from '../../components/BlogPost'
 
-
 const Blog = () => {
   const posts = allPosts.sort(
     (a, b) => Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)), // 최신 순 정렬
