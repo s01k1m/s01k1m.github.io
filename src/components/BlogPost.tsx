@@ -22,7 +22,7 @@ const BlogPost = ({ title, date, des, slug, tags }: PostPropsType) => {
         className={`mt-1 grid grid-cols-[2fr,1fr] items-center justify-between gap-1 hover:text-white hover:text-shadow-away group-hover:text-white group-hover:text-shadow-away`}
       >
         <div
-          className={`mt-1 box-border overflow-x-auto text-ellipsis whitespace-nowrap text-[#767676] group-hover:text-white`}
+          className={`ml-[-10px] box-border overflow-x-auto text-ellipsis whitespace-nowrap py-4 pl-3 text-[#767676] group-hover:text-white`}
         >
           {des}
         </div>
