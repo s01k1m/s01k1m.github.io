@@ -3,9 +3,15 @@ import { useEffect, useState } from 'react'
 
 import styled from 'styled-components'
 import moment from 'moment'
+import { AnimatePresence, motion } from 'framer-motion'
+
 import { CommentArrayType } from 'src/app/guestbook/page'
 
 const Comment = styled.div`
+  li {
+    list-style: none;
+  }
+
   .chat {
     display: inline-block;
     padding: 30px;
@@ -59,7 +65,7 @@ const Comment = styled.div`
 }
 
 .animationEffect {
-  animation: slideUp 1s ease-in-out;
+  // animation: slideUp 1s ease-in-out;
 }
 
 @keyframes slideUp {
@@ -78,10 +84,23 @@ const Comment = styled.div`
 
 const GuestbookComments = ({ commentsData }: CommentArrayType) => {
   const [isLoading, setIsLoading] = useState<Boolean>(true)
+  const [lastChangedIndex, setLastChangedIndex] = useState<number>(
+    commentsData.length,
+  )
 
   useEffect(() => {
     setTimeout(() => setIsLoading(false), 2000)
   }, [])
+
+  function addMessage() {
+    let index = commentsData.length + 1
+    setLastChangedIndex(index)
+    // setcommentsData([
+    //   ...commentsData.slice(0, index),
+    //   newMessage,
+    // }
+  }
+  let animatingcommentsData = commentsData?.slice(lastChangedIndex)
 
   return (
     <Comment>
@@ -90,37 +109,83 @@ const GuestbookComments = ({ commentsData }: CommentArrayType) => {
           Today at {moment().format('LT')}
         </span>
       </div>
-      {isLoading ? (
-        <div className="chat owner animationEffect">
-          <div className="typing typing-1"></div>
-          <div className="typing typing-2"></div>
-          <div className="typing typing-3"></div>
-        </div>
-      ) : (
-        <div className="chat owner animationEffect">
-          <div className="name">Sol Kim</div>
-          <div className="comments mt-4">
-            Hi, welcome to my blog! Go ahead and send me a message. 😄
-          </div>
-        </div>
-      )}
-      <div className="h-[600px] overflow-y-scroll">
-        {commentsData?.map((comment) => {
-          return (
-            <div className="flex justify-end">
-              <div className="chat guest animationEffect">
-                <div className="flex justify-between">
-                  <div className="name">{comment.name}</div>
-                  <div className="time mt-auto text-[0.9rem] opacity-70">
-                    {moment(comment.createdAt).format('YYYY. MM. DD')}
-                  </div>
-                </div>
-                <div className="comments mt-4">{comment.comment}</div>
+      <AnimatePresence initial={false} mode="popLayout">
+        <ul>
+          {isLoading ? (
+            <motion.li
+              layout
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{
+                opacity: { duration: 0.1 },
+                layout: {
+                  type: 'spring',
+                  bounce: 0.4,
+                },
+              }}
+            >
+              <div className="chat owner animationEffect">
+                <div className="typing typing-1"></div>
+                <div className="typing typing-2"></div>
+                <div className="typing typing-3"></div>
               </div>
-            </div>
-          )
-        })}
-      </div>
+            </motion.li>
+          ) : (
+            <motion.li
+              layout
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{
+                opacity: { duration: 0.2 },
+                layout: {
+                  type: 'spring',
+                  bounce: 0.4,
+                },
+              }}
+            >
+              <div className="chat owner animationEffect">
+                <div className="name">Sol Kim</div>
+                <div className="comments mt-4">
+                  Hi, welcome to my blog! Go ahead and send me a message. 😄
+                </div>
+              </div>
+            </motion.li>
+          )}
+          <div className="h-[600px] overflow-y-scroll">
+            {commentsData?.map((comment, index) => {
+              console.log(comment.id, comment.comment, index)
+              return (
+                <motion.li
+                  key={comment.id}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{
+                    opacity: { duration: 0.2 },
+                    layout: {
+                      type: 'spring',
+                      bounce: 0.4,
+                    },
+                  }}
+                  className="flex justify-end"
+                >
+                  <div className="chat guest animationEffect">
+                    <div className="flex justify-between">
+                      <div className="name">{comment.name}</div>
+                      <div className="time mt-auto text-[0.9rem] opacity-70">
+                        {moment(comment.createdAt).format('YYYY. MM. DD')}
+                      </div>
+                    </div>
+                    <div className="comments mt-4">{comment.comment}</div>
+                  </div>
+                </motion.li>
+              )
+            })}
+          </div>
+        </ul>
+      </AnimatePresence>
     </Comment>
   )
 }

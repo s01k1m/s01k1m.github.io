@@ -13,12 +13,12 @@ export interface CommentType {
 }
 
 export interface CommentArrayType {
-  commentsData: CommentType[] | undefined
+  commentsData: CommentType[]
 }
 
 const Guestbook = () => {
   const { data: session } = useSession() // for nickname
-  const [commentsData, setCommentsData] = useState<CommentType[]>()
+  const [commentsData, setCommentsData] = useState<CommentType[]>([])
 
   async function fetchComments() {
     const response = await fetch('/api/guestbook')

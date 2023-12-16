@@ -13,7 +13,7 @@ interface Prop {
 
 const WorkWeb = ({ imageSrc }: Prop) => {
   return (
-    <div className="web min-w-[30%]">
+    <div className="web">
       {/* 익스플로러 창 모양 */}
       <div
         className="flex h-7 items-center space-x-1 rounded-t-xl bg-gray-200 pl-3"
