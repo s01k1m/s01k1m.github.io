@@ -1,0 +1,56 @@
+/* // 햄버거 애니메이션 */
+
+#nav-icon3 span:nth-child(1),
+#nav-icon3 span:nth-child(2) {
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+/* // 햄버거 열면 x 만들기 */
+
+#nav-icon3 span:nth-child(1) {
+  position: absolute;
+  top: 22px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#nav-icon3 span:nth-child(2) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+#nav-icon3 span:nth-child(3) {
+  width: 0%;
+}
+
+/* // 햄버거 원본으로 돌아가기 */
+#nav-icon1 span:nth-child(1){
+  transfrom: rotate(0deg);
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+#nav-icon1 span:nth-child(2){
+  transfrom: rotate(0deg);
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+#nav-icon1 span:nth-child(3){
+  width: 1.5rem;
+  transfrom: rotate(0deg);
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}

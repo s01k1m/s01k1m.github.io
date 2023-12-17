@@ -4,8 +4,9 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import styled from 'styled-components'
+import { AnimatePresence, motion } from 'framer-motion'
 import navlinks from '../data/navlinks'
-
+import { MenuToggle } from './MenuToggle'
 const NavBar = styled.nav`
   /* 웹형 */
   // background: #d9d9d9;
@@ -35,58 +36,36 @@ const NavBar = styled.nav`
   }
 
   a.hamburger:hover {
-    color: black;
+    color: var(--modric-gold);
     transform: translate(10px, 0);
-    padding: 1px;
     transition: 0.4s ease-in-out;
+  
   }
 
-  // 햄버거 애니메이션
-
-  #nav-icon3 span:nth-child(1),
-  #nav-icon3 span:nth-child(2) {
-    -webkit-transition: 0.3s ease-in-out;
-    -moz-transition: 0.3s ease-in-out;
-    -o-transition: 0.3s ease-in-out;
-    transition: 0.3s ease-in-out;
+  a.hamburger:hover::after{
+    content:"♦︎";
+    position:absolute;
+    padding-left: 10px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); 
+    animation: neon-flicker 1s infinite alternate;
   }
 
-  // 햄버거 열면 x 만들기
-
-  #nav-icon3 span:nth-child(1) {
-    position: absolute;
-    top: 22px;
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-
-  #nav-icon3 span:nth-child(2) {
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-  }
-
-  #nav-icon3 span:nth-child(3) {
-    width: 0%;
-  }
 
   // 햄버거 메뉴 반응형으로 숨기고 보이기
-
+  
   .hideMenuNav {
     display: none;
   }
   .showMenuNav {
     display: block;
     position: absolute;
-    width: 100%;
-    height: 100vh;
+    width:100%;
+    height:100%;
+  
     top: 0;
     left: 0;
-    background: white;
-    z-index: 1;
+    background: black;
+    z-index: 100;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -98,6 +77,22 @@ const NavBar = styled.nav`
   /* 모바일 */
   @media screen and (max-width: 640px) {
   }
+
+
+  @keyframes neon-flicker {
+    0% {
+        text-shadow: 
+        0 0 10px rgba(0, 255, 255, 0.7), 
+        0 0 20px rgba(0, 255, 255, 0.7), 
+        0 0 30px rgba(0, 255, 255, 0.7);
+    }
+    100% {
+        text-shadow: 
+        0 0 20px rgba(0, 255, 255, 0.7), 
+        0 0 30px rgba(0, 255, 255, 0.7), 
+        0 0 40px rgba(0, 255, 255, 0.7);
+    }
+} 
 }
 `
 
@@ -109,6 +104,18 @@ const Nav = () => {
     if (navPath === '/') return router === navPath
 
     return router.startsWith(navPath)
+  }
+
+  const item = {
+    exit: {
+      opacity: 0,
+      height: 0,
+      transition: {
+        ease: 'easeInOut',
+        duration: 0.1,
+        delay: 0.9,
+      },
+    },
   }
 
   return (
@@ -140,31 +147,47 @@ const Nav = () => {
         ))}
       </div>
       {/* hamburger menu */}
-      <div
-        id={`${isNavOpen ? 'nav-icon3' : ''}`}
-        className="hamburger invisible z-10 flex flex-col space-y-1 max-[640px]:visible"
-        onClick={() => setIsNavOpen((prev) => !prev)}
-      >
-        <span className="block h-[2px] w-6 bg-gray-600"></span>
-        <span className="block h-[2px] w-6 bg-gray-600"></span>
-        <span className="block h-[2px] w-6 bg-gray-600"></span>
-      </div>
-      <div
-        className={`min-[640px]:invisible ${
-          isNavOpen ? 'showMenuNav' : 'hideMenuNav'
-        }`}
-      >
-        {navlinks.map((nav) => (
-          <Link
-            className="hamburger"
-            href={nav.link}
-            key={nav.title}
-            onClick={() => setIsNavOpen((prev) => !prev)}
+      <AnimatePresence>
+        <MenuToggle
+          toggle={() => setIsNavOpen((prev) => !prev)}
+          isNavOpen={isNavOpen}
+        />
+        {isNavOpen && (
+          <motion.div
+            key="100"
+            variants={item}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: '100vh', opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            exit="exit"
+            className={`min-[640px]:invisible ${
+              isNavOpen ? 'showMenuNav' : 'hideMenuNav'
+            }`}
           >
-            {nav.title}
-          </Link>
-        ))}
-      </div>
+            {navlinks.map((nav, index) => (
+              <motion.a
+                key={index + 1}
+                className="hamburger"
+                href={nav.link}
+                onClick={() => setIsNavOpen((prev) => !prev)}
+                initial={{ y: 80, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: index * 0.1 + 0.5 }}
+                exit={{
+                  opacity: 0,
+                  y: 90,
+                  transition: {
+                    ease: 'easeInOut',
+                    delay: 0.7 - index * 0.1,
+                  },
+                }}
+              >
+                {nav.title}
+              </motion.a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </NavBar>
   )
 }
