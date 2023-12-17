@@ -1,158 +1,170 @@
 :root {
   --code-block-width: 90%;
 }
+// scope 
 article {
-/* ---------- pretty-code (shiki) recommend ---------- */
-div[data-rehype-pretty-code-fragment] {
- display: flex;
- justify-content: center;
- align-items: center;
-}
+  /* ---------- pretty-code (shiki) recommend ---------- */
+  div[data-rehype-pretty-code-fragment] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
 
-pre > code {
-  /* 텍스트 줄이 길어도 줄바끔 금지, 공식 문서에서 추천 */
-  grid: false;
-  overflow-x: auto; /* auto로 변경하여 필요에 따라 스크롤 생성 */
-  font-family: 'General Sans', 'Nanum Myeongjo';
-  padding: 15px 10px;
-}
+  pre > code {
+    /* 텍스트 줄이 길어도 줄바끔 금지, 공식 문서에서 추천 */
+    grid: false;
+    overflow-x: auto; /* auto로 변경하여 필요에 따라 스크롤 생성 */
+    font-family: 'General Sans', 'Nanum Myeongjo';
+    padding: 15px 10px;
+  }
 
-pre {
-  width: var(--code-block-width);
-  margin: 0 auto;
-  overflow-x: auto; /* 이 부분을 추가하여 필요에 따라 스크롤 생성 */
-  margin: 20px 20px 30px 20px;
-  border-radius: 0.3em;
-  z-index: 0;
-  border: 2px solid rgb(0, 0, 0);
-  box-shadow: 0 0.5rem 1.2rem rgba(0,0,0,.5);
-}
+  pre {
+    width: var(--code-block-width);
+    margin: 0 auto;
+    overflow-x: auto; /* 이 부분을 추가하여 필요에 따라 스크롤 생성 */
+    margin: 20px 20px 30px 20px;
+    border-radius: 0.3em;
+    z-index: 0;
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: 0 0.5rem 1.2rem rgba(0,0,0,.5);
+  }
 
-/* Fenced Code block - line style */
-pre span[data-line] {
-  @apply inline-block py-0.5 leading-snug;
-  width: 100%; /* 50%에서 100%로 변경 */
-}
+  /* Fenced Code block - line style */
+  pre span[data-line] {
+    @apply inline-block py-0.5 leading-snug;
+    width: 100%; /* 50%에서 100%로 변경 */
+  }
 
-/* line numbers */
-code {
-  counter-reset: line;
-}
+  /* line numbers */
+  code {
+    counter-reset: line;
+  }
 
-code > [data-line]::before {
-  counter-increment: line;
-  content: counter(line);
-  
-  /* Other styling */
-  display: inline-block;
-  width: 1rem;
-  margin-right: 2rem;
-  text-align: right;
-  color: gray;
-}
+  code > [data-line]::before {
+    counter-increment: line;
+    content: counter(line);
+    
+    /* Other styling */
+    display: inline-block;
+    width: 1rem;
+    margin-right: 2rem;
+    text-align: right;
+    color: gray;
+  }
 
-code[data-line-numbers-max-digits='2'] > [data-line]::before {
-  width: 2rem;
-}
+  code[data-line-numbers-max-digits='2'] > [data-line]::before {
+    width: 2rem;
+  }
 
-code[data-line-numbers-max-digits='3'] > [data-line]::before {
-  width: 3rem;
-}
+  code[data-line-numbers-max-digits='3'] > [data-line]::before {
+    width: 3rem;
+  }
 
 
-/* ---------- 코드 블럭 타이틀 ---------- */
+  /* ---------- 코드 블럭 타이틀 ---------- */
 
-div.rehype-code-title {
-  width: var(--code-block-width);
-  margin: 20px auto -27px auto;
-  padding: 10px 1em 14px 1em;
-  font-family: 'General Sans', 'Nanum Myeongjo';
-  
-  background-color: rgb(255, 255, 255);
-  color: rgb(1, 1, 1);
-  z-index: 5;
-  font-style: italic;
-  border: 2px solid rgb(0, 0, 0);
-  border-top-left-radius: 0.3em;
-  border-top-right-radius: 0.3em;
-}
+  div.rehype-code-title {
+    width: var(--code-block-width);
+    margin: 20px auto -27px auto;
+    padding: 10px 1em 14px 1em;
+    font-family: 'General Sans', 'Nanum Myeongjo';
+    
+    background-color: rgb(255, 255, 255);
+    color: rgb(1, 1, 1);
+    z-index: 5;
+    font-style: italic;
+    border: 2px solid rgb(0, 0, 0);
+    border-top-left-radius: 0.3em;
+    border-top-right-radius: 0.3em;
+  }
 
-/* ---------- some global css file ---------- */
+  /* ---------- some post custom css ---------- */
 
-h1{
-  font-size: 32px;
-  font-weight: 800;
-  display: inline-block;
-  position: relative;
-  background-color: transparent;
-  /* box-shadow: inset 0 -0.5em 0 rgb(255 203 86); */
-  z-index:10;
-}
-h1::before{
-  content:"✦";
-  margin-right: 0.5em;
-}
-h1::after{
-  content:"";
-  width: 100%;
-  height: 20px;
-  display: inline-block;
-  background: rgb(246, 251, 92);
-  position: absolute;
-  bottom:0;
-  left:0;
-  z-index:-1;
-}
+  h1{
+    margin-top: 1.5em;
+    font-size: 32px;
+    font-weight: 800;
+    display: inline-block;
+    position: relative;
+    background-color: transparent;
+    /* box-shadow: inset 0 -0.5em 0 rgb(255 203 86); */
+    z-index:10;
+  }
+  h1::before{
+    content:"✦";
+    margin-right: 0.5em;
+  }
+  h1::after{
+    content:"";
+    width: 100%;
+    height: 20px;
+    display: inline-block;
+    background: rgb(246, 251, 92);
+    position: absolute;
+    bottom:0;
+    left:0;
+    z-index:-1;
+  }
 
-h2{
-  font-size: 22px;
-  font-weight: 800;
-  display: inline-block;
-  position: relative;
-  background-color: transparent;
-  /* box-shadow: inset 0 -0.5em 0 rgb(255 203 86); */
-  z-index:10;
-}
-h2::before{
-  content:"✦✦";
-  margin-right: 0.5em;
-}
-h2::after{
-  content:"";
-  width: 100%;
-  height: 18px;
-  display: inline-block;
-  background: #e8d9fc;
-  position: absolute;
-  bottom:0;
-  left:0;
-  z-index:-1;
-}
+  h2{
+    margin-top: 1em;
+    font-size: 22px;
+    font-weight: 800;
+    display: inline-block;
+    position: relative;
+    background-color: transparent;
+    /* box-shadow: inset 0 -0.5em 0 rgb(255 203 86); */
+    z-index:10;
+    line-height: 1.5em;
+  }
+  h2::before{
+    content:"✦✦";
+    margin-right: 0.5em;
+  }
+  h2::after{
+    content:"";
+    width: 100%;
+    height: 18px;
+    display: inline-block;
+    background: #e8d9fc;
+    position: absolute;
+    bottom:0;
+    left:0;
+    z-index:-1;
+  }
 
-h3{
-  font-size: 16px;
-  font-weight: 800;
-  position: relative;
-   display: inline-block;
-  background-color: transparent;
-  /* box-shadow: inset 0 -0.5em 0 rgb(255 203 86); */
-  z-index:10;
-}
-h3::before{
-  content:"✦✦✦";
-  margin-right: 0.5em;
-}
-h3::after{
-  content:"";
-  width: 100%;
-  height: 10px;
-  display: inline-block;
-  background: #D9FCDB;
-  position: absolute;
-  bottom:0;
-  left:0;
-  z-index:-1;
-}
+  h3{
+    margin-top: 0.5em;
+    font-size: 20px;
+    font-weight: 800;
+    position: relative;
+    display: inline-block;
+    background-color: transparent;
+    overflow-wrap: break-word;
+    z-index:10;
+    line-height: 1.5em;
+  }
+  h3::before{
+    content:"✦✦✦";
+    margin-right: 0.5em;
+  }
+  h3::after{
+    content:"";
+    width: 100%;
+    height: 16px;
+    display: inline-block;
+    background: #D9FCDB;
+    position: absolute;
+    bottom:0;
+    left:0;
+    z-index:-1;
+  }
+
+  li {
+    list-style: "✓  ";
+    // margin-left: 1em;
+    margin: 0.8em 1em;
+  }
 }
 
 ul,
@@ -185,8 +197,4 @@ html {
  
 .checkered {
   background: repeating-conic-gradient(#000000fe 0% 25%, #060b8ded 0% 50%) 50% / 30px 30px;
-}
-
-li {
- padding: 0.2em 0px;
 }

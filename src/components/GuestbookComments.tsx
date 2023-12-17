@@ -35,8 +35,9 @@ const Comment = styled.div`
   }
 
   .chat .name {
-    font-weight: 700;
+    font-weight: 800;
     font-size: 14px;
+    opacity: 0.7;
   }
 
   .chat .comments {
