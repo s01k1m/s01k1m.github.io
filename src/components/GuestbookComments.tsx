@@ -15,7 +15,7 @@ const Comment = styled.div`
   .chat {
     display: inline-block;
     padding: 30px;
-    background: #579ffb;
+
     border-radius: 15px 0 15px 15px;
     margin: 8px 20px;
     color: #fff;
@@ -148,9 +148,9 @@ const GuestbookComments = ({ commentsData }: CommentArrayType) => {
                   bounce: 0.4,
                 },
               }}
-              className="guest flex justify-end"
+              className={`guest flex justify-end`}
             >
-              <div className="chat" key={comment.id}>
+              <div className={`chat bg-[#4D2DB7]`} key={comment.id}>
                 <div className="flex justify-between">
                   <div className="name">{comment.name}</div>
                   <div className="time mt-auto text-[0.9rem] opacity-70">

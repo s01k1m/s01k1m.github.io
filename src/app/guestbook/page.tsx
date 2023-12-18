@@ -2,8 +2,10 @@
 import React, { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react' // react hook
 
+import Title from 'src/components/Title'
 import GuestbookForm from 'src/components/GuestbookForm'
 import GuestbookComments from 'src/components/GuestbookComments'
+
 
 export interface CommentType {
   id: number
@@ -40,7 +42,7 @@ const Guestbook = () => {
 
   return (
     <>
-      <div className="title">Guestbook</div>
+      <Title title="Guestbook" />
       <div className="mt-4">
         안녕하세요 👋{' '}
         <span className="font-extrabold">

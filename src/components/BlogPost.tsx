@@ -1,3 +1,5 @@
+'use client'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import '../app/styles/post.scss'
 
@@ -10,7 +12,12 @@ export interface PostPropsType {
 }
 
 const BlogPost = ({ title, date, des, slug, tags }: PostPropsType) => {
-  return (
+  const [isReady, setIsReady] = useState<Boolean>(false)
+  useEffect(() => {
+    setIsReady(true)
+  }, [])
+
+  return isReady ? (
     <Link href={`/posts/${slug}`} passHref className="group mb-[10px] w-full">
       {/* <div className="text-xs font-medium text-gray-400">{date}</div> */}
       <div
@@ -27,16 +34,21 @@ const BlogPost = ({ title, date, des, slug, tags }: PostPropsType) => {
           {des}
         </div>
         <div className="flex flex-wrap items-center justify-end gap-1">
-          {tags.map((tag) => {
+          {tags?.map((tag) => {
             return (
-              <span className="rounded-full bg-gray-800 p-1 px-2 text-[12px] text-gray-200 group-hover:bg-modric-blue">
-                {tag.trim()}
-              </span>
+              <Link
+                href={`/tags/${tag}`}
+                className="group-hover:shadow-away rounded-full bg-gray-800 p-1 px-2 text-[12px] text-gray-200 hover:bg-modric-blue"
+              >
+                <div>{tag.trim()}</div>
+              </Link>
             )
           })}
         </div>
       </div>
     </Link>
+  ) : (
+    <></>
   )
 }
 

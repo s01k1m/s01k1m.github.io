@@ -19,6 +19,10 @@ const config: Config = {
         away: '0 0 1em #4460ff, 0 0 0.5em var(--modric-blue), 0 0 0.1em var(--modric-blue)',
         home: '0 0 1em #ff4444, 0 0 0.5em var(--modric-red), 0 0 0.1em var(--modric-red)',
       },
+      boxShadow: {
+        away: '0 0 7px rgba(68, 96, 255, 0.7), 0 0 10px rgba(4, 87, 162, 0.6)',
+        home: '0 0 1em #ff4444, 0 0 0.5em var(--modric-red), 0 0 0.1em var(--modric-red)',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

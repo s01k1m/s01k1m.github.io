@@ -5,7 +5,7 @@ const navlinks: { title: string; link: string }[] = [
   // { title: 'Projects', link: '/projects' },
   { title: 'Resume', link: '/resume' },
   { title: 'Guest book', link: '/guestbook' },
-  { title: 'Tags', link: '/tags' },
+  // { title: 'Tags', link: '/tags' },
 ]
 
 export default navlinks

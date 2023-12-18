@@ -1,5 +1,8 @@
 // '/blog' 페이지
 import { allPosts } from '@/contentlayer/generated'
+import { motion } from 'framer-motion'
+import dynamic from 'next/dynamic'
+import Title from 'src/components/Title'
 import BlogPost from '../../components/BlogPost'
 
 const Blog = () => {
@@ -9,10 +12,9 @@ const Blog = () => {
 
   return (
     <>
-      <div className="title ">Blog</div>
-
+      <Title title="Blog" />
       <div className="n  mt-10  grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
-        {posts.map((post) => (
+        {posts?.map((post) => (
           <BlogPost
             date={post.createdAt}
             title={post.title}
