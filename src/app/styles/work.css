@@ -1,0 +1,13 @@
+/* 웹 호버 효과 */
+
+.web:hover .red{
+    background-color: rgb(255, 71, 71);
+}
+
+.web:hover .yellow{
+    background-color: rgb(255, 252, 71);
+}
+
+.web:hover .green{
+    background-color: rgb(126, 255, 71);
+}

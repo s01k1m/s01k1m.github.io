@@ -23,8 +23,10 @@ const Container = (props) => {
       <header>
         <Nav />
       </header>
-      <main className="m-[20px] md:mx-[200px] md:my-[60px]">
-        {props.children}
+      <main className="relative">
+        <div className="m-[20px] md:mx-[200px] md:my-[60px]">
+          {props.children}
+        </div>
       </main>
     </>
   )

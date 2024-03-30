@@ -1,53 +1,32 @@
 // '/blog' 페이지
 import { allPosts } from '@/contentlayer/generated'
+import { motion } from 'framer-motion'
+import dynamic from 'next/dynamic'
+import Title from 'src/components/Title'
 import BlogPost from '../../components/BlogPost'
 
 const Blog = () => {
   const posts = allPosts.sort(
-    (a, b) => Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)),
+    (a, b) => Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)), // 최신 순 정렬
   )
-
-  console.log('post', posts)
 
   return (
     <>
-      <div className="xs:flex-row xs:justify-between mt-10 flex w-full flex-col flex-wrap justify-between">
-        {posts.map((post) => (
+      <Title title="Blog" />
+      <div className="n  mt-10  grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
+        {posts?.map((post) => (
           <BlogPost
             date={post.createdAt}
             title={post.title}
-            des={post.description}
+            des={post.description as string}
             slug={post._raw.flattenedPath}
             key={post._id}
+            tags={post.tags as string[]}
           />
         ))}
       </div>
     </>
   )
 }
-
-// export const generateStaticParams = async () => {
-//   const posts = allPosts.sort(
-//     (a, b) => Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)),
-//   )
-//   console.log(posts)
-//   return {
-//     props: {
-//       posts,
-//     },
-//   }
-// }
-
-// export const getStaticProps = async () => {
-//   const posts = allPosts.sort(
-//     (a, b) => Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)),
-//   )
-
-//   return {
-//     props: {
-//       posts,
-//     },
-//   }
-// }
 
 export default Blog
